@@ -1,0 +1,115 @@
+body {
+    font-family: 'Sunflower', sans-serif;
+    font-size: 16px;    /* ch08 1/1 */
+}
+
+/* PAGE STRUCTURE */
+div#header {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 150px;
+    width: 100%;
+    display: table;
+    background: #f2fae9;
+}
+
+div#menu {
+    position: absolute;
+    top: 150px;
+    left: 0px;
+    height: 30px;
+    width: 70%;
+    display: table;
+    table-layout: fixed;
+    background: white;
+    font-size: 10px;
+    margin-left: 15%;
+}
+
+div#content {
+    position: absolute;
+    margin-top: 300px;
+    left: 50px;
+    right: 50px;
+}
+
+div#footer {
+
+    bottom: 20px;
+    left: 50px;
+    right: 50px;
+    height: 30px;
+    border-top:1px solid #ccc;
+}
+
+/* HEADER */
+
+
+.welcome {
+    display: table-cell;
+    vertical-align: middle;
+    right:200px;
+    padding-right: 20px;
+    color: #447e9b;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.welcome a:link, .welcome a:visited {
+    color: #447e9b;
+}
+
+/* MENU */
+div#menu a:link, div#menu a:visited {
+    color: #447e9b;
+}
+
+div#menu > li {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+
+    font-size: 15px;
+}
+
+/* pulldown menu */
+div#menu li  ul {
+    display:none;
+    position:absolute;
+    margin: 0;
+    padding:10px 10px 5px 10px;
+    list-style:none;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background: white;
+    z-index: 1;
+}
+
+div#menu li:hover ul {
+    display:block;
+}
+
+/* LINK */
+a:link, a:visited {
+    color: #447e9b;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* TABLE */
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    line-height: 18px;
+    /*border-bottom: 1px solid #eee;*/
+    border: 1px solid #eee;
+    padding: 5px 15px;
+    /*font-family: "Lucida Grande", Verdana, Arial, sans-serif;*/
+}

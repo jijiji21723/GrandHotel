@@ -1,0 +1,113 @@
+<!DOCTYPE html>     <!--HTML5 규약을 준수하는 파일-->
+<html lang="ko">    <!--언어는 한국어로 지정--><!---->
+
+<head>              <!--페이지 타이틀과 css 파일 2개를 연결-->
+<title>{% block title %}Django Web Programming{% endblock %}</title>
+
+{% load staticfiles %}  <!--정적 파일인 css 연결하기 위하여, staticfiles를 로드-->
+<!--스타일시트 css/base.css 작성이 필요함-->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Sunflower:300');
+    </style>
+    <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "css/base.css" %}{% endblock %}" />
+    <link rel="stylesheet" type="text/css" href="{% block extrastyle %}{% endblock %}" />
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script>
+    function initialize() {
+
+     var Y_point = 33.249315; // Y 좌표
+     var X_point = 126.408439; // X 좌표
+     var zoomLevel = 17; // 첫 로딩시 보일 지도의 확대 레벨
+     var markerTitle = "제주 그랜드 호텔"; // 현재 위치 마커에 마우스를 올렸을때 나타나는 이름
+     var markerMaxWidth = 300; // 마커를 클릭했을때 나타나는 말풍선의 최대 크기
+
+     // 말풍선 내용
+     var contentString = '<div id="content">' +
+     '<div id="siteNotice">' +
+     '</div>' +
+     '<h3 id="firstHeading" class="firstHeading">제주 그랜드 호텔</h3>' +
+     '<div id="bodyContent">' +
+     '<p>Jeju Island, 2812 색달동 서귀포시 Jejudo<br />' +
+     'Tel. Tel 064-123-4567</p>' +
+     '</div>' +
+     '</div>';
+
+     var myLatlng = new google.maps.LatLng(Y_point, X_point);
+     var mapOptions = {
+     zoom: zoomLevel,
+     center: myLatlng,
+     mapTypeId: google.maps.MapTypeId.ROADMAP
+     }
+     var map = new google.maps.Map(document.getElementById('map_view'), mapOptions);
+
+     var marker = new google.maps.Marker({
+     position: myLatlng,
+     map: map,
+     title: markerTitle
+     });
+
+     var infowindow = new google.maps.InfoWindow(
+     {
+     content: contentString,
+     maxWidth: markerMaxWidth
+     }
+     );
+
+     google.maps.event.addListener(marker, 'click', function() {
+     infowindow.open(map, marker);
+     });
+     }
+     </script>
+</head>
+
+<body onload="initialize()">              <!--바디 영역은 4 영역(헤더/메뉴/콘텐츠/풋터)으로 구성-->
+
+<div id="header">                                           <!-- ch11 div#header 수정 -->
+
+    <a href="/"><img src="{% static 'img/grandhotel_logo.jpg' %}" style="height:150px; margin-left: 550px"/></a>
+    <!-- user 객체는 장고 기본 객체이므로 모든 템플릿에서 사용 가능함 -->
+    {% if user.is_active %} <!-- 로그인되면 user.is_active() 함수가 참을 반환-->
+        <h4 class="welcome">환영합니다,
+            <!-- firstof 태그는 뒤에 나오는 인자들 중에서 False 아닌 첫 인자를 선택함 -->
+            <strong>{% firstof user.get_short_name user.get_username %}</strong>님. /
+            <a href="{% url 'password_change' %}">비밀번호 변경</a> /
+            <a href="{% url 'logout' %}">로그아웃</a>
+        </h4>
+    {% else %}
+        <h4 class="welcome">환영합니다, 손님. /
+            <a href="{% url 'login' %}">로그인</a> /
+            <a href="{% url 'register' %}">회원가입</a>
+        </h4>
+    {% endif %}
+</div>
+
+<div id="menu">                     <!--메뉴 영역-->
+    <li><a href="{% url 'home' %}">홈</a></li>
+    <li><a href="{% url 'bookmark:index' %}">제주 여행지</a></li>
+    <li><a href="{% url 'blog:index' %}">이용 후기&bigtriangledown;</a>
+        <ul>
+            <li><a href="{% url 'login' %}">추가</a></li>
+            <li><a href="{% url 'login' %}">편집</a></li>
+        </ul>
+    </li>
+    <li><a href="{% url 'photo:index' %}">호텔 시설</a> <!-- ch10 수정 1/1-->
+    </li>
+    <li><a href="{% url 'blog:post_archive' %}">저장소</a></li>
+    <li><a href="{% url 'blog:search' %}">검색</a></li>               <!--ch09 수정 1/1-->
+    <li><a href="{% url 'admin:index' %}">관리자</a></li>
+</div>
+
+{% block content %}{% endblock %}   <!--블록 태그로 콘텐츠 영역 정의 -->
+
+{% block footer %}{% endblock %}    <!--블록 태그로 풋터 영역 정의-->
+
+<!--{% block js %}{% endblock js%}-->
+</body>
+</html>
