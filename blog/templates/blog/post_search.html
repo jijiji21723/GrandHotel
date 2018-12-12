@@ -1,27 +1,33 @@
 <!--ch09 작성 시작-->
 {% extends "base.html" %}
-{% block title %}장고 게시글 검색{% endblock %}
+{% block title %}Grand Hotel{% endblock %}
 {% load staticfiles %}
 {% block extrastyle %}{% static "css/tabular.css" %}{% endblock %}
 {% block content %}
 <div id="content">
     <!--blog.views.SearchFormView.form_valid() 함수와 함께 보면서 작업하라-->
+    <a href="/"><img src="{% static 'img/search.jpg' %}" style="width:5%; margin-left: 330px"/></a><br/><br/>
     <h1 class="centered">게시글 검색</h1>
+    <br/>
+    <p1 style = "margin-left: 400px">이용후기 게시판에서 검색어로 게시글을 찾아보세요.</p1>
+    <br/><br/><br/>
     <!--form 태그로 폼을 출력, 확인 누르면 POST 방식으로 요청을 동일한 URL로 전송-->
     <!--CSRF 공격(Cross Site Request Forgery) 출처: http://itstory.tk/entry/CSRF-공격이란-그리고-CSRF-방어-방법 [덕's IT Story]-->
     <!--csrf-token 태그를 써서 CSRF 공격을 방지-->
     <form id="my_form" action="." method="post">
         {% csrf_token %}
-        <div class="centered">
+        <div class="centered" id = "table">
             <table>
                 <!--form은 뷰가 넘겨준 PostSearchForm을 의미함-->
                 <!--as_table, as_ul, as_p-->
                  {{ form.as_table }}
             </table>
             <!--<button>초기화</button>-->
-            <input type="submit" value="확인" />
+
             <!--<input type="button" value="Reset" onClick="this.form.reset()" />-->
         </div>
+        <br/><br/>
+        <input id="ok" type="submit" value="확인" />
     </form>
     <br/><br/>
     {% if object_list and search_term %}
@@ -33,7 +39,6 @@
                 <th>번호</th>
                 <th>최종 수정일</th>
                 <th>제목</th>
-                <th>슬러그</th>
                 <th>요약</th>
                 <th>태그</th>
             </tr>
@@ -46,7 +51,6 @@
                         <strong>{{ post.title }}</strong>
                     </a>
                 </td>
-                <td>{{ post.slug }}</td>
                 <td>{{ post.description }}</td>
                 <td>{{ post.tag }}</td>
             </tr>
@@ -87,7 +91,6 @@
                     <th>번호</th>
                     <th>최종 수정일</th>
                     <th>제목</th>
-                    <th>슬러그</th>
                     <th>요약</th>
                     <th>태그</th>
                 </tr>
@@ -100,7 +103,6 @@
                             <strong>{{ post.title }}</strong>
                         </a>
                     </td>
-                    <td>{{ post.slug }}</td>
                     <td>{{ post.description }}</td>
                     <td>{{ post.tag }}</td>
                 </tr>

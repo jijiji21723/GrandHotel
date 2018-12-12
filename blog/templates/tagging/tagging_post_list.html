@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}태그된 게시글 목록{% endblock %}
+{% block title %}Grand Hotel{% endblock %}
 {% load staticfiles %}
 {% block extrastyle %}{% static "css/tabular.css" %}{% endblock %}
 {% block content %}
@@ -10,7 +10,6 @@
                 <th>번호</th>
                 <th>최종 수정일</th>
                 <th>제목</th>
-                <th>슬러그</th>
                 <th>요약</th>
             </tr>
             {% for post in object_list %}
@@ -22,7 +21,6 @@
                         <strong>{{ post.title }}</strong>
                     </a>
                 </td>
-                <td>{{ post.slug }}</td>
                 <td>{{ post.description }}</td>
             </tr>
             {% endfor %}

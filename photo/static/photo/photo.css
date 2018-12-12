@@ -23,18 +23,17 @@ div.album-detail-photo {
 div.album-detail-photo > li {
     font-size: 10px;
     font-weight: bold;
-    font-style: italic;
 }
 
 /* photo_detail.html */
 table.photo-detail {
-    margin: 30px auto 5px;
+    margin: 30px auto 10px;
     width: 100%;
 }
 
 /* common */
 img.thumbnail {
-    border:1px solid #ccc;
+    border: 1px solid #ccc;
 }
 
 div.clear_float {

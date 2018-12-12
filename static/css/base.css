@@ -27,6 +27,14 @@ div#menu {
     margin-left: 15%;
 }
 
+div#menu ul {
+    width: 120px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
 div#content {
     position: absolute;
     margin-top: 300px;
@@ -35,8 +43,8 @@ div#content {
 }
 
 div#footer {
-
-    bottom: 20px;
+    position: absolute;
+    bottom: -750px;
     left: 50px;
     right: 50px;
     height: 30px;
@@ -44,7 +52,6 @@ div#footer {
 }
 
 /* HEADER */
-
 
 .welcome {
     display: table-cell;

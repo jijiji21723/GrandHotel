@@ -23,5 +23,26 @@
 }
 
 .centered { text-align: center; }
+
 .leftpadding30percent { padding-left: 30%; }
+
 #disqus_thread { font-size: 6px; } /* ch08 1/1 */
+
+#my_form{
+    margin-left: 440px;
+}
+#table{
+    width: 300px;
+    background: #f2fae9;
+}
+
+#ok{
+    margin-left: 100px;
+    background: #f2fae9;
+}
+
+#tt{
+    background: #f2fae9;
+    text-align: left;
+    margin-left: -50px;
+}

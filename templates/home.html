@@ -52,6 +52,22 @@
     <div class = "map_view">
     <h3 style="color: #447e9b" >오시는 길</h3><br/>
     <div id="map_view" style="width:300px; height:300px;"></div>
+    <Br/>
+        <hr style="border: solid 0.5px #609ab6;" />
+
+    <div>
+        <h3 style="color: #447e9b">글꼴과 컬러 소개</h3><br/>
+        <p>- 컬러</p>
+        <a href="/"><img src="{% static 'img/color.jpg' %}" style="width:20%; float:left"/></a><br/><br/>
+        <p> 여러가지 색을 갖고 있는 제주의 바다처럼, <br/>글씨는 어두운 파란색들로, 배경색들은 <br/>옅은 하늘색과 민트색으로 표현했습니다.
+            <br/>전체적인 배경은 깔끔함을 주기 위해 <br/>흰색으로 표현했습니다.
+        </p>
+        <br/>
+        <p>- 글꼴</p>
+        <a href="/"><img src="{% static 'img/font.jpg' %}" style="width:20%; float:left"/></a>
+        <p> 가독성도 나쁘지 않고, 깔끔한 느낌을 주는, sunflower체를 사용했습니다.</p>
+
+    </div>
     </div>
 
     <!-- 호텔 간략 소개 -->
@@ -71,13 +87,23 @@
             &nbsp;저희 임직원들은 항상 정성이 깃든&nbsp;최고의 서비스를 제공하겠습니다.
         </p>
     </div>
+        <Br/><br/><br/><br/>
+        <h3 style="color: #447e9b">로고 소개</h3>
+        <div>
+            <a href="/"><img src="{% static 'img/grandhotel_logo.jpg' %}" style="width:20%; float:left"/></a><br/>
+        </div>
+        &nbsp;&nbsp;
+        <div style = "margin-left: 180px">
+            <p>따뜻한 제주에서만 볼 수 있는 야자수 나무를 가운데에 배치하고, <BR/>호텔의 이름인 GRAND HOTEL을 쓰고,
+                <br/>배경은 부드러운 느낌을 주기 위해 연한 민트 색을 넣었습니다.</p>
+        </div>
     </div>
 
 </div>
 {% endblock content %}
 
 {% block footer %}                      <!--footer 블록 재정의-->
-<div id="footer" style="position: fixed">
+<div id="footer">
     &copy; Grand Hotel
 </div>
 {% endblock footer %}
