@@ -44,7 +44,7 @@ div#content {
 
 div#footer {
     position: absolute;
-    bottom: -750px;
+    bottom: -650px;
     left: 50px;
     right: 50px;
     height: 30px;
@@ -54,13 +54,13 @@ div#footer {
 /* HEADER */
 
 .welcome {
-    display: table-cell;
-    vertical-align: middle;
-    right:200px;
-    padding-right: 20px;
-    color: #447e9b;
-    font-weight: normal;
-    font-size: 12px;
+      display: table-cell;
+      vertical-align: bottom;
+      text-align: right;
+      padding-right: 100px;
+      color:  #447e9b;
+      font-weight: normal;
+      font-size: 12px;
 }
 
 .welcome a:link, .welcome a:visited {
@@ -86,6 +86,7 @@ div#menu li  ul {
     position:absolute;
     margin: 0;
     padding:10px 10px 5px 10px;
+    width: 15%;
     list-style:none;
     border-right: 1px solid #ccc;
     border-left: 1px solid #ccc;

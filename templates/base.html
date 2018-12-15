@@ -70,8 +70,8 @@
 <body onload="initialize()">              <!--바디 영역은 4 영역(헤더/메뉴/콘텐츠/풋터)으로 구성-->
 
 <div id="header">                                           <!-- ch11 div#header 수정 -->
-
-    <a href="/"><img src="{% static 'img/grandhotel_logo.jpg' %}" style="height:150px; margin-left: 550px"/></a>
+    <!-- 로고 -->
+    <a href="/"><img src="{% static 'img/grandhotel_logo.jpg' %}" style="height:150px; display: block;  margin-left: 123%"/></a>
     <!-- user 객체는 장고 기본 객체이므로 모든 템플릿에서 사용 가능함 -->
     {% if user.is_active %} <!-- 로그인되면 user.is_active() 함수가 참을 반환-->
         <h4 class="welcome">환영합니다,

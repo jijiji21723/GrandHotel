@@ -20,7 +20,7 @@ div.map_view{
 div.info{
     position: absolute;
     top: 750px;
-    left: 450px;
+    left: 40%;
     font-size: 15px; color: #263755;
     text-style :bold
 }
